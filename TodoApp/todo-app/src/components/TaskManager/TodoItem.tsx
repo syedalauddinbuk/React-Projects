@@ -1,11 +1,12 @@
-import {Todo} from "";
-interface props{
+import type { Todo } from "../../types/todo";
+
+interface Props {
     todo: Todo;
     onToggle:(id:string)=>void;
     onDelete:(id:string)=>void;
 }
 
-const TodoItem = ({ todo, onToggle, onDelete}:props)=>{
+export default function TodoItem({ todo, onToggle, onDelete}:Props){
 
     return (
 

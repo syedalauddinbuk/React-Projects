@@ -6,7 +6,7 @@ interface Props {
 }
 
 
-const TodoInput =({onAdd}: Props)=>{
+export const TodoInput =({onAdd}: Props)=>{
 const [input, setInput] = useState<string>("");
 
 const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>)=>{

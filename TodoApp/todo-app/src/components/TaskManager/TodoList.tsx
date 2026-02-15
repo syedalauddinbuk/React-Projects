@@ -1,17 +1,17 @@
-import {Todo} from '../../types';
+import type { Todo } from "../../types/todo";
 import TodoItem from './TodoItem';
 
 interface props{
-todo: Todo[];
+todos: Todo[];
 onToggle:(id:string)=>void;
 onDelete:(id:string)=>void;
 }
 
-const TodoList =({todo, onToggle, onDelete}:props)=>{
+const TodoList =({todos, onToggle, onDelete}:props)=>{
 
     return (
         <ul>
-     {todo.map(todo =>(
+     {todos.map(todo =>(
 
         <TodoItem
         key={todo.id}
@@ -24,3 +24,5 @@ const TodoList =({todo, onToggle, onDelete}:props)=>{
         </ul>
     )
 }
+
+export default TodoList;

@@ -1,0 +1,21 @@
+Next upgrades we will add:
+
+✅ LocalStorage persistence
+
+✅ Filtering (All / Active / Completed)
+
+✅ Edit Todo
+
+✅ Dark Mode
+
+✅ Custom Hook
+
+✅ Unit Testing
+
+✅ Drag & Drop
+
+✅ Context API or Reducer
+
+✅ Backend API version (Node/Express later)
+
+✅ Deploy to Vercel
