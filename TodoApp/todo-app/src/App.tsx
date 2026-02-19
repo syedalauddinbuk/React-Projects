@@ -2,9 +2,10 @@ import { useState } from "react";
 import type { Todo } from "./types/todo";
 import TodoInput from "./components/TaskManager/TodoInput";
 import TodoList from "./components/TaskManager/TodoList";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
 
   const addTodo = (text: string) => {
     const newTodo: Todo = {
@@ -14,13 +15,13 @@ function App() {
       createdAt: new Date(),
     };
 
-    setTodos(prev => [...prev, newTodo]);
+    setTodos((prev: Todo[]) => [...prev, newTodo]);
   };
 
 
 
   const toggleTodo = (id: string) => {
-    setTodos(prev =>
+    setTodos((prev: Todo[]) =>
       prev.map(todo =>
         todo.id === id
           ? { ...todo, completed: !todo.completed }
@@ -30,7 +31,7 @@ function App() {
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(prev =>
+    setTodos((prev: Todo[]) =>
       prev.filter(todo => todo.id !== id)
     );
   };
