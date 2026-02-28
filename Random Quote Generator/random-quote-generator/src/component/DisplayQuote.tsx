@@ -41,3 +41,8 @@ function DisplayQuotes(){
        
     </div>)
 }
+
+
+
+
+export default DisplayQuotes
