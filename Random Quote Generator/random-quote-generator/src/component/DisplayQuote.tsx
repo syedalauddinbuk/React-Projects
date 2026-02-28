@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import type { Quote } from '../types/quotes';
 import fetchQuotes from '../services/quoteServices';
 
@@ -25,7 +25,9 @@ function DisplayQuotes(){
             setLoading(false);
         }
     }
-
+useEffect(()=>{
+    getQuote();
+},[])
 
 
 
