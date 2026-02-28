@@ -3,6 +3,9 @@ import './App.css'
 import Header from './component/Header'
 import Footer from './component/Footer'
 import DisplayQuotes from './component/DisplayQuote'
+
+
+
 function App() {
   
 

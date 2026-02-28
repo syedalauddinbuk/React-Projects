@@ -1,9 +1,10 @@
 import {useState} from 'react';
-import {fetchQuotes} from '../services/quoteServices';
+import type { Quote } from '../types/quotes';
+import fetchQuotes from '../services/quoteServices';
 
 function DisplayQuotes(){
 
-    const [quote, setQuote] = useState<string>('');
+    const [quote, setQuote] = useState<Quote | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
 
@@ -14,7 +15,8 @@ function DisplayQuotes(){
         setLoading(true);
         setError('');
         const data = await fetchQuotes();
-        setQuote(data);
+        console.log(data);
+        setQuote(data[0]);
 
 
         }catch(error){
@@ -33,7 +35,7 @@ function DisplayQuotes(){
        {error&& <p>{error} </p>}
        {quote&&(
         <>
-<h2>{quote.content}</h2>
+<h2>{quote.quote}</h2>
 <p>{quote.author}</p>
        </>)}
        
@@ -46,3 +48,4 @@ function DisplayQuotes(){
 
 
 export default DisplayQuotes
+
