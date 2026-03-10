@@ -2,8 +2,8 @@ import { useState } from "react"
 import FahrenhOutput from "./FahrenhOutput";
 function CelsiusInput(){
 
-   const [tempInCel, setTempinCel] = useState<number | null>(0)
-   const [temInFarh, setTempInFarh] = useState<number | null>(0)
+   const [tempInCel, setTempInCel] = useState<number | null>(0)
+   const [tempInFarh, setTempInFarh] = useState<number | null>(0)
 
 
     function handleCeltoFarhCalculation(celsius: number | null): void {
@@ -19,21 +19,30 @@ function CelsiusInput(){
 
 
 
-    return <div>
-        <form onSubmit={(e) => {
-
-            e.preventDefault()
-            handleCeltoFarhCalculation(e.target.value)
-
-        }}>
-
-            <label>Celsius:</label>
-            <input type="number" step="0.1" value={tempInCel} onChange={(e) => setTempInCel(parseFloat(e.target.value) || null)} />
-            <button type="submit">Convert to Fahrenheit</button>
-        </form>
-
+    return (
         <div>
-            <FahrenhOutput temperature={temInFarh}/>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleCeltoFarhCalculation(tempInCel);
+                }}
+            >
+                <label htmlFor="celsius">Celsius:</label>
+                <input
+                    id="celsius"
+                    name="celsius"
+                    type="number"
+                    step="0.1"
+                    value={tempInCel === null ? '' : tempInCel}
+                    onChange={(e) => setTempInCel(e.target.value === '' ? null : parseFloat(e.target.value))}
+                />
+                <button type="submit">Convert to Fahrenheit</button>
+            </form>
+            <div>
+                <FahrenhOutput temperature={tempInFarh} />
+            </div>
         </div>
-    </div>
+    );
 }
+
+export default CelsiusInput;
