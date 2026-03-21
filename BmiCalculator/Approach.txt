@@ -1,0 +1,149 @@
+1. Problem Definition
+
+Ans:
+Build a simple BMI (Body Mass Index) calculator that allows users to input height and weight, and returns their BMI value along with the corresponding health category (Underweight, Normal, Overweight, Obese).
+
+2. User Persona / Target Audience
+
+Ans:
+
+Individuals who want to track their health metrics
+Fitness beginners
+Gym users / diet-conscious users
+Healthcare apps users
+3. Requirements
+
+Core Requirements:
+
+Input: Height & Weight
+Output: BMI value + category
+Support metric & imperial units
+Simple, fast, user-friendly UI
+
+4. Functional Requirements
+User can enter:
+Height (cm / feet-inches)
+Weight (kg / lbs)
+System calculates BMI using formula:
+BMI = weight (kg) / height² (m²)
+Display BMI result instantly
+Show category:
+Underweight (<18.5)
+Normal (18.5–24.9)
+Overweight (25–29.9)
+Obese (30+)
+Optional:
+Reset button
+Unit toggle
+
+5. Non-Functional Requirements
+Fast response (<200ms)
+Mobile responsive
+High availability (simple app, minimal downtime)
+Accessibility (basic readability, contrast)
+Scalable if embedded in health platform
+
+6. Constraints & Assumptions
+No authentication required (basic version)
+No data persistence (stateless app)
+Assumes valid numeric input
+Runs on browser (client-side computation)
+
+7. UX Flow
+User opens app
+Enters height & weight
+Clicks “Calculate”
+System computes BMI
+Displays:
+BMI value
+Category
+User can reset or change values
+
+8. Wireframe (Textual)
+--------------------------------
+|      BMI Calculator          |
+--------------------------------
+| Height: [____] (cm)          |
+| Weight: [____] (kg)          |
+|                              |
+| [ Calculate ]   [ Reset ]     |
+|                              |
+| Result:                      |
+| BMI: 23.4                   |
+| Category: Normal            |
+--------------------------------
+
+9. UI Design System Decisions
+Minimal design (clean + centered layout)
+Colors:
+Green → Normal
+Yellow → Overweight
+Red → Obese
+Typography:
+Large result display
+Components:
+Input fields
+Buttons
+Result card
+
+10. Technical Architecture
+
+Simple Version (Frontend-only):
+
+React (or plain JS)
+No backend required
+Logic handled in browser
+
+If scalable:
+
+Frontend: React / Next.js
+Backend: Node.js / Spring Boot
+API: /calculate-bmi
+Optional DB: store history
+
+11. Implementation Plan (Task Breakdown)
+
+Frontend:
+
+Create input form
+Add state management
+Implement BMI calculation logic
+Display results
+Add validation
+
+Optional Backend:
+
+Create API endpoint
+Add validation layer
+Return BMI + category
+
+12. Testing Strategy
+Unit tests:
+BMI formula correctness
+Edge cases:
+Zero / negative values
+Extremely high values
+UI testing:
+Input validation
+Button actions
+Manual testing:
+Cross-device testing
+
+13. Deployment Plan
+Frontend:
+Deploy on Vercel / Netlify
+Backend (if any):
+Deploy on AWS / Render
+Domain setup (optional)
+
+14. Documentation
+README:
+Project overview
+Setup instructions
+Tech stack
+API docs (if backend exists)
+Screenshots / demo GIF
+Future improvements:
+BMI history tracking
+User login
+Health recommendations
