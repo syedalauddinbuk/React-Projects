@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import InputField from"./InputField
+import InputField from"./InputField"
 import ResultCard from "./ResultCard"
 
 function BmiCalculator(){
@@ -32,6 +32,10 @@ function BmiCalculator(){
     return setCategories("Obese (Class 3)");
 }
 useEffect(()=>{
+    if (bmi === null) {
+      setBmi(0)
+    }
+
     if (bmi !== null) {
         handleCategories();
     }
@@ -51,8 +55,8 @@ useEffect(()=>{
 
             
             
-            <button type="submit">Calculate</button>
-            <button>Reset</button>
+            <button className="bg-blue-500 text-white p-2 rounded padding-4" type="submit">Calculate</button>
+            <button className="bg-gray-500 text-white p-2 rounded" type="reset">Reset</button>
         </form>
 
        <ResultCard bmi={bmi} categories={categories} />
