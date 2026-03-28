@@ -1,0 +1,47 @@
+1, Problem Definition
+trying to build a weatehr app , which takes data from weather api and display it on ui
+
+2, User Persona / Target Audience
+normal human being
+
+3, Requirements
+should be able to take city name as input
+should display current weahter information
+should be able to display a image as well for current weather
+
+
+4, Functional
+take city name as input
+display current weather information
+display weather image
+
+5, Non-functional
+should be fast
+
+
+6, Constraints & Assumptions
+it shoudl display a random city name for first render 
+
+7, UX Flow
+
+
+
+8, Wireframe
+
+9, UI Design System Decisions
+    typography 
+    color theory
+    layout- 
+
+
+10, Technical Architecture
+   react will be implementated 
+   a api is needed for weather info
+
+11, Implementation Plan (Task Breakdown)
+
+12, Testing Strategy
+
+13, Deployment Plan
+
+14, Documentation
