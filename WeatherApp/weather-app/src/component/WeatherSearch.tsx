@@ -1,14 +1,29 @@
 
-import { useState } from "react"
+import { useState, useContext,} from "react"
+import { cityContext } from "../context/CityContext";
 
 
-
-function WeatherSearch(){
+export default function WeatherSearch(){
 
     const [input,setInput] = useState('')
+   const context = useContext(cityContext);
+
+if (!context) {
+  throw new Error("cityContext must be used within a Provider");
+}
+
+const { city, setCity } = context;
+
+
+    function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setCity(input);
+    }
+
 
     return<div>
-        <form>
+        <h1>Weather Search</h1>
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 placeholder="Enter city name" 

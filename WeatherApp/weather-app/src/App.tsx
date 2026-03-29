@@ -1,23 +1,21 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import { cityContext } from './context/CityContext'
+import WeatherDisplay from './component/WeatherDisplay'
+import WeatherSearch from './component/WeatherSearch'
 
 function App() {
-  
+  const [city, setCity] = useState('')
 
   return (
-    <>
-    <header><h1>Weather App</h1></header>
+<cityContext.Provider value={{ city, setCity }}>
+      <header><h1>Weather App</h1></header>
 
+      <WeatherDisplay />
+      <WeatherSearch />
 
-
-   
-
-    <footer>@2026 Weather App. All rights reserved.</footer>
- 
-    </>
+      <footer>@2026 Weather App. All rights reserved.</footer>
+    </cityContext.Provider>
   )
 }
 
